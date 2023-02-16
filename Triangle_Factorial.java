@@ -4,6 +4,7 @@ public class Triangle_Factorial {
         Scanner iScanner = new Scanner(System.in);
         System.out.printf("Введите число N: ");
         int n = iScanner.nextInt();
+        iScanner.close();
         System.out.printf(
                 "Для числа N=%d триугольное число будет равняться: %d",
                 n,
