@@ -33,7 +33,13 @@ public class Triangle_Factorial {
                 return 1;
             }
             default:{
-                return n * get_factorial_number(n-1);
+                long get_n_1 = get_factorial_number(n-1);
+                long ret_n_n_1 = n * get_n_1;
+                if(get_n_1 > ret_n_n_1){
+                    System.out.println("Произошло переполнение при вычислении факториала");
+                    ret_n_n_1 = 0;
+                }
+                return ret_n_n_1;
             }
         }
     }
