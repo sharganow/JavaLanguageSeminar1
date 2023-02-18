@@ -5,8 +5,9 @@ public class Simple_calculator {
     public static void main(String[] args) {
         System.out.println("Напишите задание для калькулятора в виде \"12 * 3 = \" без кавычек: ");
         Scanner iScanner = new Scanner(System.in);
-        String user_task = iScanner.next();
+        String user_task = iScanner.nextLine();
         iScanner.close();
+        if(user_task.charAt(user_task.length()-1) != ' '){ user_task += ' ';}
         System.out.printf(user_task);
         System.out.println(execute_task(user_task));
     }
@@ -63,25 +64,8 @@ public class Simple_calculator {
                         case ' ':{
                             if(arg.length() > 0){
                                 arg2 = Integer.decode(arg.toString());
+                                arg.delete(0, arg.length());
                                 state = "Произвести вычисление";
-                                switch (user_task.charAt(i)) {
-                                    case '=': {
-                                        switch (operand){
-                                            case "-":{
-                                                return arg1 - arg2;
-                                            }
-                                            case "+":{
-                                                return arg1 + arg2;
-                                            }
-                                            case "*":{
-                                                return arg1 * arg2;
-                                            }
-                                            case ":":{
-                                                return arg1 / arg2;
-                                            }
-                                        }
-                                    }
-                                }
                             }
                         }break;
                         case '-', '=': {
@@ -103,6 +87,7 @@ public class Simple_calculator {
                                                 return arg1 * arg2;
                                             }
                                             case ":":{
+
                                                 return arg1 / arg2;
                                             }
                                         }
@@ -110,6 +95,26 @@ public class Simple_calculator {
                                 }
                             }
                         }break;
+                    }
+                }break;
+                case "Произвести вычисление":{
+                    switch (user_task.charAt(i)) {
+                        case '=': {
+                            switch (operand){
+                                case "-":{
+                                    return arg1 - arg2;
+                                }
+                                case "+":{
+                                    return arg1 + arg2;
+                                }
+                                case "*":{
+                                    return arg1 * arg2;
+                                }
+                                case ":":{
+                                    return arg1 / arg2;
+                                }
+                            }
+                        }
                     }
                 }break;
             }
