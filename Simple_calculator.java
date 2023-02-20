@@ -17,7 +17,6 @@ public class Simple_calculator {
         StringBuilder operand = new StringBuilder();
         operand.append("Nothing");
         String state = "Найти первый аргумент";
-        StringBuilder arg = new StringBuilder();
         for(int i = 0; i<user_task.length(); i++){
             switch(state){
                 case "Найти первый аргумент": {
@@ -114,7 +113,7 @@ public class Simple_calculator {
             switch (user_task.charAt(index)) {
                 case '-', '+', '*', ':': {
                     operand.delete(0, operand.length());
-                    operand.append(Character.toString(user_task.charAt(index)));
+                    operand.append(user_task.charAt(index));
                     return index;
                 }
                 case ' ':{}
